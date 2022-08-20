@@ -1,0 +1,28 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -8.344809019151334, 
+                    41.485499753508215
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "title": "Capitulo I - Lameira",
+                "description": "Washington, D.C.",
+                "lines": [
+                    "Green"
+                ],
+                "address": "1411 Southern Avenue, Temple Hills, MD 20748"
+            },
+            "popInfo": {
+                "text": "Capitulo I - Lameira",
+                "correctCode": false,
+                "pin": 2021
+        }  
+    }
+]
+}
