@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="height=device-height, 
+         width=device-width, initial-scale=1.0, 
+         minimum-scale=1.0, maximum-scale=1.0, 
+         user-scalable=no">
+      <title>Arvoredo</title>
+      <link href='assets/leith.css' rel='stylesheet' />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
+      <link href='https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;1,400&display=swap' rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="data/murals.js" type="text/javascript"></script>
+      <script src="data/studios.js" type="text/javascript"></script>
+      <script src="data/tree.js" type="text/javascript"></script>
+      <script src="data/acerp.js" type="text/javascript"></script>
+      <script src="data/acerpl.js" type="text/javascript"></script>
+      <script src="data/acerps.js" type="text/javascript"></script>
+      <script src="data/acersa.js" type="text/javascript"></script>
+      <script src="data/aesculus.js" type="text/javascript"></script>
+      <script src="data/abate.js" type="text/javascript"></script>
+      <script src="data/sem.js" type="text/javascript"></script>
+      <script src="data/alnus_glutinosa.js" type="text/javascript"></script>
+      <script src="data/arbutus_unedo.js" type="text/javascript"></script>
+      <script src="data/betula_pubescens.js" type="text/javascript"></script>
+      <script src="data/bosquetede_deSalix_caprea.js" type="text/javascript"></script>
+      <script src="data/camellia.js" type="text/javascript"></script>
+      <script src="data/carpinus_betulus.js" type="text/javascript"></script>
+      <script src="data/catalpa_bignonioides.js" type="text/javascript"></script>
+      <script src="data/cedrus_atlantica.js" type="text/javascript"></script>
+      <script src="data/celtis_australis.js" type="text/javascript"></script>
+      <script src="data/cercis_siliquastrum.js" type="text/javascript"></script>
+      <script src="data/cordyline_australis.js" type="text/javascript"></script>
+      <script src="data/corylus_avellana.js" type="text/javascript"></script>
+      <script src="data/cryptomeria_japonica.js" type="text/javascript"></script>
+      <script src="data/cupressus_sempervirens.js" type="text/javascript"></script>
+      <script src="data/diospyros_virginiana.js" type="text/javascript"></script>
+      <script src="data/fagus_sylvatica.js" type="text/javascript"></script>
+      <script src="data/fraxinus_angustifolia.js" type="text/javascript"></script>
+      <script src="data/grevillea_robusta.js" type="text/javascript"></script>
+      <script src="data/ilex_aquifolium.js" type="text/javascript"></script>
+      <script src="data/juglans_regia.js" type="text/javascript"></script>
+      <script src="data/lagoestremia_indica.js" type="text/javascript"></script>
+      <script src="data/laurus_nobilis.js" type="text/javascript"></script>
+      <script src="data/ligustrum_lucidum.js" type="text/javascript"></script>
+      <script src="data/liquidambar_styraciflua.js" type="text/javascript"></script>
+      <script src="data/liriodendron_tulipifera.js" type="text/javascript"></script>
+      <script src="data/macieira_silveste.js" type="text/javascript"></script>
+      <script src="data/magnolia_acuminata.js" type="text/javascript"></script>
+      <script src="data/magnolia_liliflora.js" type="text/javascript"></script>
+      <script src="data/magnolia_soulangeana.js" type="text/javascript"></script>
+      <script src="data/magnolia.js" type="text/javascript"></script>
+      <script src="data/malus_domestica.js" type="text/javascript"></script>
+      <script src="data/melia_azedarach.js" type="text/javascript"></script>
+      <script src="data/olea_europaea.js" type="text/javascript"></script>
+      <script src="data/picea_abies.js" type="text/javascript"></script>
+      <script src="data/pinus_pinea.js" type="text/javascript"></script>
+      <script src="data/pittosporum_tobira.js" type="text/javascript"></script>
+      <script src="data/platanus_x_hispanica.js" type="text/javascript"></script>
+      <script src="data/populus_alba.js" type="text/javascript"></script>
+      <script src="data/populus_nigra_pyramidalis.js" type="text/javascript"></script>
+      <script src="data/populus_nigra.js" type="text/javascript"></script>
+      <script src="data/prunos_domestica.js" type="text/javascript"></script>
+      <script src="data/prunus_cerasifera_pissardii.js" type="text/javascript"></script>
+      <script src="data/prunus_cerasifera.js" type="text/javascript"></script>
+      <script src="data/prunus_serrulata.js" type="text/javascript"></script>
+      <script src="data/pyrus_communis.js" type="text/javascript"></script>
+      <script src="data/quercus_coccinea.js" type="text/javascript"></script>
+      <script src="data/quercus_faginea.js" type="text/javascript"></script>
+      <script src="data/quercus_robur_fastigiata.js" type="text/javascript"></script>
+      <script src="data/quercus_robur.js" type="text/javascript"></script>
+      <script src="data/quercus_rubra.js" type="text/javascript"></script>
+      <script src="data/quercus_suber.js" type="text/javascript"></script>
+      <script src="data/rhododendron_ponticum.js" type="text/javascript"></script>
+      <script src="data/salix_alba.js" type="text/javascript"></script>
+      <script src="data/salix_atrocinerea.js" type="text/javascript"></script>
+      <script src="data/salix_babylonica.js" type="text/javascript"></script>
+      <script src="data/salix_caprea.js" type="text/javascript"></script>
+      <script src="data/sambucus_nigra.js" type="text/javascript"></script>
+      <script src="data/schinus_molle.js" type="text/javascript"></script>
+      <script src="data/tilia_cordata.js" type="text/javascript"></script>
+      <script src="data/tilia.js" type="text/javascript"></script>
+      <script src="data/ulmus_minor.js" type="text/javascript"></script>
+      <script src="data/washingtonia_filifera.js" type="text/javascript"></script>
+
+
+   </head>
+   <body>
+      <pre id="info1"></pre>
+      <div id='mapcontainer'>
+      <div class='map-overlay-2' id="labels">
+         <div class="arrow-to-show-and-hide" onclick="handleClickHideLabels()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/></svg>
+         </div>
+         <div class='map-overlay-inner'>
+            <label class="categoryLabel"><img src="https://cdn.icon-icons.com/icons2/547/PNG/512/1455554316_line-07_icon-icons.com_53329.png" class="icon-position"> Espécies arbóreas</label>
+            <div class="categoryLabel-containner">
+               <div class="check-position">
+                  <input type="checkbox" id="treeCB" value="tree" onchange="switchlayer('tree')" checked/>
+                  <label for="HydrologieCB"> <img src="https://i.ibb.co/pZMrwFR/Icon01.png" class="icon-position"></i> Acer campestre</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="studiosCB" value="studios" onchange="switchlayer('studios')" checked/>
+                  <label for="studiosCB"><img src="https://i.ibb.co/mvC2JdH/Icon02.png"  class="icon-position"><i> Acer monspessulanum</i></label>
+               </div>
+               <div class="check-position">
+                  <input type="checkbox" id="muralsCB" value="murals" onchange="switchlayer('murals')" checked/>
+                  <label for="RoutesCB"> <img src="https://i.ibb.co/J7ckgRb/Icon03.png" class="icon-position"><i> Acer negundo</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="acerpCB" value="acerp" onchange="switchlayer('acerp')" checked/>
+                  <label for="acerpCB"><img src="https://i.ibb.co/y4NCmTm/Icon04.png" class="icon-position"><i> Acer palmatum</i></label>
+               </div>
+               <div class="check-position" >
+               <input type="checkbox" id="acerplCB" value="acerpl" onchange="switchlayer('acerpl')" checked/>
+                  <label for="acerplCB"><img src="https://i.ibb.co/Y8SZMtR/Icon05.png" class="icon-position"><i> Acer platanoides</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="acerpsCB" value="acerps" onchange="switchlayer('acerps')" checked/>
+                  <label for="acerpsCB"><img src="https://i.ibb.co/3k0fM5r/Icon06.png" class="icon-position"><i> Acer pseudoplatanus</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="acersaCB" value="acersa" onchange="switchlayer('acersa')" checked/>
+                  <label for="acersaCB"><img src="https://i.ibb.co/FDWf2jG/Icon07.png" class="icon-position"><i> Acer saccharinum</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="aesculusCB" value="aesculus" onchange="switchlayer('aesculus')" checked/>
+                  <label for="aesculusCB"><img src="https://i.ibb.co/zSMqn3h/Icon08.png" class="icon-position"><i> Aesculus hippocastanum</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="alnus_glutinosaCB" value="alnus_glutinosa" onchange="switchlayer('alnus_glutinosa')" checked/>
+                  <label for="alnus_glutinosaCB"><img src="https://i.ibb.co/swvRNCC/Icon09.png" class="icon-position"><i> Alnus glutinosa</i></label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="arbutus_unedoCB" value="arbutus_unedo" onchange="switchlayer('arbutus_unedo')" checked/>
+                  <label for="arbutus_unedoCB"><img src="https://i.ibb.co/Yk7WcR0/Icon10.png" class="icon-position"><i> Arbutus Unedo</i> </label>
+
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="betula_pubescensCB" value="betula_pubescens" onchange="switchlayer('betula_pubescens')" checked/>
+                  <label for="betula_pubescensCB"><img src="https://i.ibb.co/x61xCMj/Icon11.png" class="icon-position"><i> Betula pubescens</i> </label>
+
+               </div>    
+               <div class="check-position" >
+                  <input type="checkbox" id="bosquetede_deSalix_capreaCB" value="bosquetede_deSalix_caprea" onchange="switchlayer('bosquetede_deSalix_caprea')" checked/>
+                  <label for="bosquetede_deSalix_capreaCB"><img src="https://i.ibb.co/r78TTY0/Icon12.png" class="icon-position"><i> Bosquetede deSalix caprea</i> </label>
+
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="camelliaCB" value="camellia" onchange="switchlayer('camellia')" checked/>
+                  <label for="camelliaCB"><img src="https://i.ibb.co/09rQsRF/Icon13.png" class="icon-position"><i> Camellia</i> </label>
+
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="carpinus_betulusCB" value="carpinus_betulus" onchange="switchlayer('carpinus_betulus')" checked/>
+                  <label for="carpinus_betulusCB"><img src="https://i.ibb.co/kgf9TK6/Icon14.png" class="icon-position"><i> Carpinus betulus </i> </label>
+
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="catalpa_bignonioidesCB" value="catalpa_bignonioides" onchange="switchlayer('catalpa_bignonioides')" checked/>
+                  <label for="catalpa_bignonioidesCB"><img src="https://i.ibb.co/f4tbM74/Icon15.png" class="icon-position"><i> Catalpa bignonioides</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="cedrus_atlanticaCB" value="cedrus_atlantica" onchange="switchlayer('cedrus_atlantica')" checked/>
+                  <label for="cedrus_atlanticaCB"><img src="https://i.ibb.co/qnCdLjv/Icon16.png" class="icon-position"><i> Cedrus atlantica</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="celtis_australisCB" value="celtis_australis" onchange="switchlayer('celtis_australis')" checked/>
+                  <label for="celtis_australisCB"><img src="https://i.ibb.co/gmyKqMV/Icon17.png" class="icon-position"><i> Celtis australis</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="cercis_siliquastrumCB" value="cercis_siliquastrum" onchange="switchlayer('cercis_siliquastrum')" checked/>
+                  <label for="cercis_siliquastrumCB"><img src="https://i.ibb.co/FW7MpYY/Icon18.png" class="icon-position"><i>  Cercis siliquastrum</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="cordyline_australisCB" value="cordyline_australis" onchange="switchlayer('cordyline_australis')" checked/>
+                  <label for="cordyline_australisCB"><img src="https://i.ibb.co/Qmjb4qD/Icon19.png" class="icon-position"><i> Cordyline australis</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="corylus_avellanaCB" value="corylus_avellana" onchange="switchlayer('corylus_avellana')" checked/>
+                  <label for="corylus_avellanaCB"><img src="https://i.ibb.co/7kpxNSX/Icon20.png" class="icon-position"><i> Corylus avellana</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="cryptomeria_japonicaCB" value="cryptomeria_japonica" onchange="switchlayer('cryptomeria_japonica')" checked/>
+                  <label for="cryptomeria_japonicaCB"><img src="https://i.ibb.co/JxqP8zC/Icon21.png" class="icon-position"><i> Cryptomeria japonica</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="cupressus_sempervirensCB" value="cupressus_sempervirens" onchange="switchlayer('cupressus_sempervirens')" checked/>
+                  <label for="cupressus_sempervirensCB"><img src="https://i.ibb.co/gFpkm8t/Icon22.png" class="icon-position"><i> Cupressus sempervirenss</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="diospyros_virginianaCB" value="diospyros_virginiana" onchange="switchlayer('diospyros_virginiana')" checked/>
+                  <label for="diospyros_virginianaCB"><img src="https://i.ibb.co/Z6Mp8wz/Icon23.png" class="icon-position"><i> Diospyros virginiana</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="fagus_sylvaticaCB" value="fagus_sylvatica" onchange="switchlayer('fagus_sylvatica')" checked/>
+                  <label for="fagus_sylvaticaCB"><img src="https://i.ibb.co/HpGn9yt/Icon24.png" class="icon-position"><i> Fagus sylvatica</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="fraxinus_angustifoliaCB" value="fraxinus_angustifolia" onchange="switchlayer('fraxinus_angustifolia')" checked/>
+                  <label for="fraxinus_angustifoliaCB"><img src="https://i.ibb.co/k9D7xkr/Icon25.png" class="icon-position"><i> Fraxinus angustifolia</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="grevillea_robustaCB" value="grevillea_robusta" onchange="switchlayer('grevillea_robusta')" checked/>
+                  <label for="grevillea_robustaCB"><img src="https://i.ibb.co/kGHG8fy/Icon26.png" class="icon-position"><i> Grevillea robusta</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="ilex_aquifoliumCB" value="ilex_aquifolium" onchange="switchlayer('ilex_aquifolium')" checked/>
+                  <label for="ilex_aquifoliumCB"><img src="https://i.ibb.co/ws6NGr3/Icon27.png" class="icon-position"><i> Ilex aquifolium</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="juglans_regiaCB" value="juglans_regia" onchange="switchlayer('juglans_regia')" checked/>
+                  <label for="juglans_regiaCB"><img src="https://i.ibb.co/TYHRYR0/Icon28.png" class="icon-position"><i> Juglans Regia</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="lagoestremia_indicaCB" value="lagoestremia_indica" onchange="switchlayer('lagoestremia_indica')" checked/>
+                  <label for="lagoestremia_indicaCB"><img src="https://i.ibb.co/54rvTJF/Icon29.png" class="icon-position"><i> Lagoestremia_indica</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="laurus_nobilisCB" value="laurus_nobilis" onchange="switchlayer('laurus_nobilis')" checked/>
+                  <label for="laurus_nobilisCB"><img src="https://i.ibb.co/VLSdCXs/Icon30.png" class="icon-position"><i> Laurus nobilis</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="ligustrum_lucidumCB" value="ligustrum_lucidum" onchange="switchlayer('ligustrum_lucidum')" checked/>
+                  <label for="ligustrum_lucidumCB"><img src="https://i.ibb.co/4RHsBsT/Icon31.png" class="icon-position"><i> Ligustrum lucidum</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="liquidambar_styracifluaCB" value="liquidambar_styraciflua" onchange="switchlayer('liquidambar_styraciflua')" checked/>
+                  <label for="liquidambar_styracifluaCB"><img src="https://i.ibb.co/Z8MwZqV/Icon32.png" class="icon-position"><i> Liquidambar styraciflua</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="liriodendron_tulipiferaCB" value="liriodendron_tulipifera" onchange="switchlayer('liriodendron_tulipifera')" checked/>
+                  <label for="liriodendron_tulipiferaCB"><img src="https://i.ibb.co/G0NkKnz/Icon33.png" class="icon-position"><i> Liriodendron tulipifera</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="macieira_silvesteCB" value="macieira_silveste" onchange="switchlayer('macieira_silveste')" checked/>
+                  <label for="macieira_silvesteCB"><img src="https://i.ibb.co/3MS2SBv/Icon34.png" class="icon-position"><i> Macieira silveste</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="magnolia_acuminataCB" value="magnolia_acuminata" onchange="switchlayer('magnolia_acuminata')" checked/>
+                  <label for="magnolia_acuminataCB"><img src="https://i.ibb.co/C9XDy7X/Icon35.png" class="icon-position"><i> Magnolia acuminata</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="magnoliaCB" value="magnolia" onchange="switchlayer('magnolia')" checked/>
+                  <label for="magnoliaCB"><img src="https://i.ibb.co/6Zynz7j/Icon38.png" class="icon-position"><i> Magnólia grandiflora</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="magnolia_lilifloraCB" value="magnolia_liliflora" onchange="switchlayer('magnolia_liliflora')" checked/>
+                  <label for="magnolia_lilifloraCB"><img src="https://i.ibb.co/2jZHccF/Icon36.png" class="icon-position"><i> Magnolia liliflora</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="magnolia_soulangeanaCB" value="magnolia_soulangeana" onchange="switchlayer('magnolia_soulangeana')" checked/>
+                  <label for="magnolia_soulangeanaCB"><img src="https://i.ibb.co/ydZYrc2/Icon37.png" class="icon-position"><i> Magnolia soulangeana</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="malus_domesticaCB" value="malus_domestica" onchange="switchlayer('malus_domestica')" checked/>
+                  <label for="malus_domesticaCB"><img src="https://i.ibb.co/fnxvScM/Icon39.png" class="icon-position"><i> Malus domestica</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="melia_azedarachCB" value="melia_azedarach" onchange="switchlayer('melia_azedarach')" checked/>
+                  <label for="melia_azedarachCB"><img src="https://i.ibb.co/tXgfdKf/Icon40.png" class="icon-position"><i> Melia azedarach</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="olea_europaeaCB" value="olea_europaea" onchange="switchlayer('olea_europaea')" checked/>
+                  <label for="olea_europaeaCB"><img src="https://i.ibb.co/1XLT354/Icon41.png" class="icon-position"><i> Olea europaeaa</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="picea_abiesCB" value="picea_abies" onchange="switchlayer('picea_abies')" checked/>
+                  <label for="picea_abiesaCB"><img src="https://i.ibb.co/jb4H192/Icon42.png" class="icon-position"><i> Picea abies</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="pinus_pineaCB" value="pinus_pinea" onchange="switchlayer('pinus_pinea')" checked/>
+                  <label for="pinus_pineaCB"><img src="https://i.ibb.co/CnrXNz2/Icon43.png" class="icon-position"><i> Pinus pinea</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="pittosporum_tobiraCB" value="pittosporum_tobira" onchange="switchlayer('pittosporum_tobira')" checked/>
+                  <label for="pittosporum_tobiraCB"><img src="https://i.ibb.co/j5jD6rs/Icon44.png" class="icon-position"><i> Pittosporum tobira</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="platanus_x_hispanicaCB" value="platanus_x_hispanica" onchange="switchlayer('platanus_x_hispanica')" checked/>
+                  <label for="platanus_x_hispanicaCB"><img src="https://i.ibb.co/bv8Lt2D/Icon45.png" class="icon-position"><i>Platanus x hispanica</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="populus_albaCB" value="populus_alba" onchange="switchlayer('populus_alba')" checked/>
+                  <label for="populus_albaCB"><img src="https://i.ibb.co/0M1tPcW/Icon46.png" class="icon-position"><i> Populus alba</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="populus_nigra_pyramidalisCB" value="populus_nigra_pyramidalis" onchange="switchlayer('populus_nigra_pyramidalis')" checked/>
+                  <label for="populus_nigra_pyramidalisCB"><img src="https://i.ibb.co/VCgjb9M/Icon47.png" class="icon-position"><i> Populus nigra pyramidalis</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="populus_nigraCB" value="populus_nigra" onchange="switchlayer('populus_nigra')" checked/>
+                  <label for="populus_nigraCB"><img src="https://i.ibb.co/Zfnn83T/Icon48.png" class="icon-position"><i> Populus nigra</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="prunos_domesticaCB" value="prunos_domestica" onchange="switchlayer('prunos_domestica')" checked/>
+                  <label for="prunos_domesticaCB"><img src="https://i.ibb.co/YR33Fjn/Icon49.png" class="icon-position"><i> Prunos domestica</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="prunus_cerasifera_pissardiiCB" value="prunus_cerasifera_pissardii" onchange="switchlayer('prunus_cerasifera_pissardii')" checked/>
+                  <label for="prunus_cerasifera_pissardiiCB"><img src="https://i.ibb.co/GVz893z/Icon50.png" class="icon-position"><i> Prunus cerasifera pissardii</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="prunus_cerasiferaCB" value="prunus_cerasifera" onchange="switchlayer('prunus_cerasifera')" checked/>
+                  <label for="prunus_cerasiferaCB"><img src="https://i.ibb.co/b2RcH9g/Icon51.png" class="icon-position"><i> Prunus cerasifera</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="prunus_serrulataCB" value="prunus_serrulata" onchange="switchlayer('prunus_serrulata')" checked/>
+                  <label for="prunus_serrulataCB"><img src="https://i.ibb.co/LJgd7jD/Icon52.png" class="icon-position"><i> Prunus serrulata</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="pyrus_communisCB" value="pyrus_communis" onchange="switchlayer('pyrus_communis')" checked/>
+                  <label for="pyrus_communisCB"><img src="https://i.ibb.co/kMkzFJZ/Icon53.png" class="icon-position"><i> Pyrus communis</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_coccineaCB" value="quercus_coccinea" onchange="switchlayer('quercus_coccinea')" checked/>
+                  <label for="quercus_coccíneaCB"><img src="https://i.ibb.co/dGCK78B/Icon54.png" class="icon-position"><i> Quercus coccínea</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_fagineaCB" value="quercus_faginea" onchange="switchlayer('quercus_faginea')" checked/>
+                  <label for="quercus_fagineaCB"><img src="https://i.ibb.co/tYDQjQx/Icon55.png" class="icon-position"><i> Quercus fagínea</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_robur_fastigiataCB" value="quercus_robur_fastigiata" onchange="switchlayer('quercus_robur_fastigiata')" checked/>
+                  <label for="quercus_robur_fastigiataCB"><img src="https://i.ibb.co/MG3CVTL/Icon56.png" class="icon-position"><i> Quercus robur fastigiata</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_roburCB" value="quercus_robur" onchange="switchlayer('quercus_robur')" checked/>
+                  <label for="quercus_roburCB"><img src="https://i.ibb.co/2NJKn7n/Icon57.png" class="icon-position"><i> Quercus robur</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_rubraCB" value="quercus_rubra" onchange="switchlayer('quercus_rubra')" checked/>
+                  <label for="quercus_rubraCB"><img src="https://i.ibb.co/1vTSJfg/Icon58.png" class="icon-position"><i> Quercus rubra</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="quercus_suberCB" value="quercus_suber" onchange="switchlayer('quercus_suber')" checked/>
+                  <label for="quercus_suberCB"><img src="https://i.ibb.co/GRDDxrT/Icon59.png" class="icon-position"><i> Quercus suber</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="rhododendron_ponticumCB" value="rhododendron_ponticum" onchange="switchlayer('rhododendron_ponticum')" checked/>
+                  <label for="rhododendron_ponticumCB"><img src="https://i.ibb.co/yFD0hnd/Icon60.png" class="icon-position"><i> Rhododendron ponticum</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="salix_albaCB" value="salix_alba" onchange="switchlayer('salix_alba')" checked/>
+                  <label for="salix_albaCB"><img src="https://i.ibb.co/qr0ZyGS/Icon61.png" class="icon-position"><i> Salix alba</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="salix_atrocinereaCB" value="salix_atrocinerea" onchange="switchlayer('salix_atrocinerea')" checked/>
+                  <label for="salix_atrocinereaCB"><img src="https://i.ibb.co/xHc0LTJ/Icon62.png" class="icon-position"><i> Salix atrocinerea</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="salix_babylonicaCB" value="salix_babylonica" onchange="switchlayer('salix_babylonica')" checked/>
+                  <label for="salix_babylonicaCB"><img src="https://i.ibb.co/YcV5W5h/Icon63.png" class="icon-position"><i> Salix babylonica</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="salix_capreaCB" value="salix_caprea" onchange="switchlayer('salix_caprea')" checked/>
+                  <label for="salix_capreaCB"><img src="https://i.ibb.co/zZP6PHv/Icon64.png" class="icon-position"><i> Salix caprea</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="sambucus_nigraCB" value="sambucus_nigra" onchange="switchlayer('sambucus_nigra')" checked/>
+                  <label for="sambucus_nigraCB"><img src="https://i.ibb.co/0XPSYGv/Icon65.png" class="icon-position"><i> Sambucus nigra</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="schinus_molleCB" value="schinus_molle" onchange="switchlayer('schinus_molle')" checked/>
+                  <label for="schinus_molleCB"><img src="https://i.ibb.co/f4WMjjT/Icon66.png" class="icon-position"><i> Schinus molle</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="tília_cordataCB" value="tília_cordata" onchange="switchlayer('tília_cordata')" checked/>
+                  <label for="tília_cordataCB"><img src="https://i.ibb.co/HxFvB9y/Icon67.png" class="icon-position"><i> Tília cordata</i> </label>
+               </div>  
+               <div class="check-position" >
+                  <input type="checkbox" id="tiliaCB" value="tilia" onchange="switchlayer('tilia')" checked/>
+                  <label for="tiliaCB"><img src="https://i.ibb.co/51m9GKz/Icon68.png" class="icon-position"><i> Tilia tomentosa</i> </label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="ulmus_minorCB" value="ulmus_minor" onchange="switchlayer('ulmus_minor')" checked/>
+                  <label for="ulmus_minorCB"><img src="https://i.ibb.co/cbwQF3j/Icon69.png" class="icon-position"><i> Ulmus minor</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="washingtonia_filiferaCB" value="washingtonia_filifera" onchange="switchlayer('washingtonia_filifera')" checked/>
+                  <label for="washingtonia_filiferaCB"><img src="https://i.ibb.co/ZM99bX6/Icon70.png" class="icon-position"><i> Washingtonia filifera</i> </label>
+               </div> 
+               <div class="check-position" >
+                  <input type="checkbox" id="abateCB" value="abate" onchange="switchlayer('abate')" checked/>
+                  <label for="abateCB"><img src="icons/triangle-15.svg" class="icon-position"> Abate</label>
+               </div>
+               <div class="check-position" >
+                  <input type="checkbox" id="semCB" value="sem" onchange="switchlayer('sem')" checked/>
+                  <label for="semCB"><img src="icons/triangle-15.svg" class="icon-position"> Sem árvore</label>
+               </div>
+            </div>
+            <div class="check-position">
+               <button onclick="handleClickOnAndOff()">OFF/ON</button> 
+               <a role="button" class="btn btn-info" href="http://caldasdastaipas.com/balcao-virtual/comunicar-problema/" id="btnInfo" target="_new" style="display: inline-block;">Reportar !</a>
+            </div>
+         </div>
+      </div>
+      <div class='map-overlay'  id='legenda'>  
+         
+         <div class="legendas"> 
+           <h3>O património arbóreo das Caldas das Taipas</h3>
+           <p><h4>A junta de freguesia de Caldas das Taipas procede de forma contínua ao levantamento e atualização do inventário arbóreo público da vila.Nesse sentido, esta plataforma permite a visualização todas as árvores públicas inventariadas.</h4></p>
+           <p> <h1 id="total">+ 70 Espécies </p>
+            <p> <h1 id="total">+ 2000 Árvores </p>
+          
+         </div>
+      </div>
+      <div id="inputs">
+         <div id="myBtn">
+            <h4 id="diagonal">Informações</h4>
+         </div>
+      </div>
+      
+   <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <div id='navbar'>
+               <div id='lllogo'><a href='http://caldasdastaipas.com/'><img src='http://caldasdastaipas.com/wp-content/uploads/2017/12/logo-hd-300x300.png' alt='[Leith Late logo]'></a></div>
+               <div id='lllogo'><a href='https://www.cm-guimaraes.pt/'><img src='https://1.bp.blogspot.com/-ifuG_YDzSrQ/X0OgFFCV9MI/AAAAAAAAEPo/4RZyHy_TTgwRJLJW8BJ03bF_NW5SQPpLQCLcBGAsYHQ/s640/cm_guimaraes.png' alt='[Leith Late logo]'></a></div>
+               <div id='lllogo'><a href='https://www.labpaisagem.pt/'><img src='https://www.riskaquasoil.eu/wp-content/uploads/2019/11/laboratoriodapaisagemdeguimaraes.png' alt='[Leith Late logo]' ></a></div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>A Junta de Freguesia de Caldas das Taipas criou o Gabinete de Arboricultura com o objetivo de cuidar, valorizar e incrementar o património arbóreo da vila de Caldas das Taipas, intervir com sustentação técnica permanente, reduzir os conflitos de coabitação e divulgar as boas práticas e serviços ecológicos e climáticos do arvoredo urbano.</p>
+
+            <p>Nesse âmbito, procedeu-se à georreferenciação de todas as espécies arbóreas existentes em Caldas das Taipas. Esta iniciativa consiste em enumerar, etiquetar e georreferenciar, todas as árvores, de modo a que sejam do conhecimento de todos os cidadãos que, poderão através deste mapa, conhecer as espécies e as suas características das árvores existentes na nossa freguesia e identifica-las, para que as mesmas ganhem uma maior importância e sejam reconhecidas por todos os cidadãos e entidades como uma parte de um enorme património coletivo e vital para o bem-estar de todos.</p>
+      
+            <p>Na Freguesia de Caldelas temos mais de 2000 árvores com 70 espécies diferentes. Estes seres vivos, necessitam ser protegidos, cuidados e valorizados por todos, porque nos dão oxigénio e sombra, diminuindo o stress das pessoas, os efeitos das ilhas de calor e a poluição sonora </p>
+      
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+    
+      </div>
+    </div>
+   
+      <script src='index.js'></script>
+   </body>
+</html>
