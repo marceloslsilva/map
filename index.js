@@ -3875,14 +3875,12 @@ window.onclick = function (event) {
     mofa.style.display = "block";
   }
 }
-var nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'top-left');
-map.addControl(new mapboxgl.FullscreenControl());
 
-map.addControl(new mapboxgl.GeolocateControl({
-  positionOptions: {
-    enableHighAccuracy: true
-  },
-  trackUserLocation: true,
-  showUserHeading: true
-}));
+map.addControl(
+  new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true
+  })
+);
